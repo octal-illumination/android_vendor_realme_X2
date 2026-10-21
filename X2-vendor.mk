@@ -377,7 +377,7 @@ PRODUCT_PACKAGES += \
     libllvm-qcom \
     libmdmdetect \
     libmdsprpc \
-    libmmosal \
+    libmmosal_vendor \
     libpdmapper \
     libpdnotifier \
     libqcci_legacy \
@@ -479,7 +479,7 @@ PRODUCT_PACKAGES += \
     libwfduibcsrc_proprietary \
     libwfduibcsrcinterface_proprietary \
     libwfdutils_proprietary \
-    vendor.qti.hardware.wifidisplaysession@1.0 \
+    vendor.qti.hardware.wifidisplaysession@1.0_vendor \
     vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
@@ -540,7 +540,7 @@ PRODUCT_PACKAGES += \
     com.qtistatic.stats.awb \
     com.qtistatic.stats.pdlib \
     libdepthmapwrapper \
-    com.qualcomm.qti.dpm.api@1.0 \
+    com.qualcomm.qti.dpm.api@1.0_vendor \
     com.qualcomm.qti.imscmservice@1.0 \
     com.qualcomm.qti.imscmservice@2.0 \
     com.qualcomm.qti.imscmservice@2.1 \
@@ -597,7 +597,7 @@ PRODUCT_PACKAGES += \
     libTrustedInputTZ \
     libTrustedUI \
     libTrustedUITZ \
-    libVDDualCameraBlurlessAPI \
+    libVDDualCameraBlurlessAPI_vendor \
     libVDPostureDetection \
     libadaptlaunch \
     libaoa \
@@ -667,7 +667,7 @@ PRODUCT_PACKAGES += \
     libmiracast \
     libmm-color-convertor \
     libmm-hdcpmgr \
-    libmpbase \
+    libmpbase_vendor \
     libnative-api \
     libnetmgr \
     libnetmgr_common \
@@ -779,7 +779,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.bluetooth_sar@1.1 \
     vendor.qti.hardware.cacert@1.0 \
     vendor.qti.hardware.camera.postproc@1.0 \
-    vendor.qti.hardware.cvp@1.0 \
+    vendor.qti.hardware.cvp@1.0_vendor \
     vendor.qti.hardware.data.cne.internal.api@1.0 \
     vendor.qti.hardware.data.cne.internal.constants@1.0 \
     vendor.qti.hardware.data.cne.internal.server@1.0 \
@@ -791,7 +791,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.data.qmi@1.0 \
     vendor.qti.hardware.dsp@1.0 \
     vendor.qti.hardware.fingerprint@1.0 \
-    vendor.qti.hardware.fm@1.0 \
+    vendor.qti.hardware.fm@1.0_vendor \
     vendor.qti.hardware.iop@2.0 \
     vendor.qti.hardware.qccsyshal@1.0 \
     vendor.qti.hardware.qccvndhal@1.0-halimpl \
@@ -833,7 +833,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.ims.rcsconfig@2.0 \
     vendor.qti.ims.rcsconfig@2.1 \
     vendor.qti.imsrtpservice@3.0-service-Impl \
-    vendor.qti.imsrtpservice@3.0 \
+    vendor.qti.imsrtpservice@3.0_vendor \
     vendor.qti.latency@2.0 \
     vendor.qti.memory.pasrmanager@1.0 \
     vendor.qti.power.pasrmanager@1.0 \
