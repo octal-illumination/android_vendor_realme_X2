@@ -949,6 +949,9 @@ PRODUCT_PACKAGES += \
     libarcsoft_scbokeh_video \
     libarcsoft_smart_denoise \
     libarcsoft_super_night_raw \
+    libavcodec \
+    libavformat \
+    libavutil \
     libbsproxy \
     libc++_shared \
     libcdm_metrics_protos \
