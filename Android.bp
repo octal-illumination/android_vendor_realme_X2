@@ -16124,7 +16124,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.camera.postproc@1.0",
+    name: "vendor.qti.hardware.camera.postproc@1.0_vendor",
+    stem: "vendor.qti.hardware.camera.postproc@1.0",
     owner: "realme",
     strip: {
         none: true,
