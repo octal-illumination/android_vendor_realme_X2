@@ -459,6 +459,7 @@ PRODUCT_PACKAGES += \
     libstreamparser \
     libsurround_3mic_proc \
     libvideoutils \
+    libwfdaac_vendor \
     libwfdcodecv4l2_proprietary \
     libwfdcommonutils_proprietary \
     libwfdconfigutils_proprietary \
@@ -481,6 +482,7 @@ PRODUCT_PACKAGES += \
     libwfdutils_proprietary \
     vendor.qti.hardware.wifidisplaysession@1.0_vendor \
     vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl \
+    android.hardware.sensors@2.0-ScopedWakelock \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
     camera.device@3.3-impl \
@@ -540,6 +542,7 @@ PRODUCT_PACKAGES += \
     com.qtistatic.stats.awb \
     com.qtistatic.stats.pdlib \
     libdepthmapwrapper \
+    com.dsi.ant@1.0 \
     com.qualcomm.qti.dpm.api@1.0_vendor \
     com.qualcomm.qti.imscmservice@1.0 \
     com.qualcomm.qti.imscmservice@2.0 \
@@ -599,12 +602,16 @@ PRODUCT_PACKAGES += \
     libTrustedUITZ \
     libVDDualCameraBlurlessAPI_vendor \
     libVDPostureDetection \
+    libWaterMark \
     libadaptlaunch \
     libaoa \
     libappclassifier \
+    libavservices_minijail \
     libbase64 \
+    libbluetooth_audio_session \
     libbtnv \
     libcacertclient \
+    libcamera_core_hwi \
     libcamera_nn_stub \
     libcamxfdalgov7 \
     libcamxfdalgov8 \
@@ -614,10 +621,14 @@ PRODUCT_PACKAGES += \
     libcamxtintlessalgo \
     libcdfw \
     libcdfw_remote_api \
+    libcld80211 \
     libcne \
     libcneapiclient \
     libcneoplookup \
     libcneqmiutils \
+    libcodec2_hidl@1.0 \
+    libcodec2_vndk \
+    libcom.oppo.calidatacontainer \
     libcom.qti.chinodeutils \
     libconfigdb \
     libcpion \
@@ -630,13 +641,17 @@ PRODUCT_PACKAGES += \
     libdisplayqos \
     libdpmqmihal \
     libdpps \
+    libdrm \
     libdrmfs \
     libdrmtime \
     libdsi_netctrl \
+    libeffects \
+    libeffectsconfig \
     libgameoptfeature \
     libgarden \
     libgarden_haltests_e2e \
     libgdtap \
+    libgps.utils \
     libhbtpclient \
     libhbtpdsp \
     libhbtpfrmwk \
@@ -646,6 +661,7 @@ PRODUCT_PACKAGES += \
     libizat_client_api \
     libizat_core \
     libjnihelper \
+    libjson \
     libkeymasterdeviceutils \
     libkeymasterprovision \
     libkeymasterutils \
@@ -653,7 +669,9 @@ PRODUCT_PACKAGES += \
     liblearningmodule \
     libloadalgo_stub \
     libloc_api_v02 \
+    libloc_core \
     libloc_socket \
+    liblocation_api \
     liblocationservice \
     liblocationservice_glue \
     liblowi_client \
@@ -677,6 +695,7 @@ PRODUCT_PACKAGES += \
     libnpu \
     libocam_common \
     liboemaids_vendor \
+    liboppo_platform_hwi \
     libops \
     libp61-jcop-kit \
     libperfconfig \
@@ -708,7 +727,9 @@ PRODUCT_PACKAGES += \
     libril-qc-ltedirectdisc \
     libril-qc-radioconfig \
     libril-qcril-hook-oem \
+    libril \
     librilqmiservices \
+    librilutils \
     librmp \
     librpmb \
     libsdedrm \
@@ -718,6 +739,7 @@ PRODUCT_PACKAGES += \
     libsdm-disp-vndapis \
     libsdmextension \
     libsensorcal \
+    libsensorndkbridge \
     libsensorslog \
     libsettings \
     libsi \
@@ -733,10 +755,14 @@ PRODUCT_PACKAGES += \
     libssc \
     libssc_default_listener \
     libssd \
+    libstagefright_bufferpool@2.0.1 \
+    libstagefright_softomx \
     libsubsystem_control \
     libswregistrationalgo \
     libsystem_health_mon \
     libtime_genoff \
+    libtinycompress \
+    libtinyxml \
     libtinyxml2_1 \
     libtriplecam_image_optical_zoom \
     libtriplecam_optical_zoom_control \
@@ -745,6 +771,7 @@ PRODUCT_PACKAGES += \
     libtrustedapploader \
     libtzdrmgenprov \
     libwms \
+    libwpa_client \
     libwqe \
     libxml \
     libxtadapter \
@@ -761,7 +788,10 @@ PRODUCT_PACKAGES += \
     vendor.display.color@1.3 \
     vendor.display.color@1.4 \
     vendor.display.color@1.5 \
+    vendor.display.config@1.0 \
+    vendor.display.config@2.0 \
     vendor.display.postproc@1.0 \
+    vendor.oplus.hardware.cammidasservice@1.0 \
     vendor.qti.data.factory@2.0 \
     vendor.qti.data.factory@2.1 \
     vendor.qti.data.mwqem@1.0 \
@@ -792,10 +822,12 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.dsp@1.0 \
     vendor.qti.hardware.fingerprint@1.0 \
     vendor.qti.hardware.fm@1.0_vendor \
+    vendor.qti.hardware.improvetouch.touchcompanion@1.0 \
     vendor.qti.hardware.iop@2.0 \
     vendor.qti.hardware.qccsyshal@1.0 \
     vendor.qti.hardware.qccvndhal@1.0-halimpl \
     vendor.qti.hardware.qccvndhal@1.0 \
+    vendor.qti.hardware.qteeconnector@1.0 \
     vendor.qti.hardware.radio.am@1.0 \
     vendor.qti.hardware.radio.atcmdfwd@1.0 \
     vendor.qti.hardware.radio.ims@1.0 \
@@ -822,8 +854,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.radio.uim_remote_client@1.2 \
     vendor.qti.hardware.radio.uim_remote_server@1.0 \
     vendor.qti.hardware.sensorscalibrate@1.0 \
+    vendor.qti.hardware.sigma_miracast@1.0 \
     vendor.qti.hardware.slmadapter@1.0 \
     vendor.qti.hardware.soter@1.0 \
+    vendor.qti.hardware.trustedui@1.0 \
     vendor.qti.hardware.tui_comm@1.0 \
     vendor.qti.ims.callcapability@1.0 \
     vendor.qti.ims.callinfo@1.0 \
@@ -891,6 +925,7 @@ PRODUCT_PACKAGES += \
     libtracker_6dof_skel_8150 \
     libtracker_6dof_skel_8250 \
     vendor.qti.hardware.wifidisplaysession@1.0 \
+    android.hidl.base@1.0 \
     com.qualcomm.qti.dpm.api@1.0 \
     fm_helium \
     lib-imsvideocodec \
@@ -977,8 +1012,11 @@ PRODUCT_PACKAGES += \
     libwatermark_photo \
     libwvhidl \
     libwvdrmengine \
+    oplus_btaudio_offload_if \
     vendor.oplus.hardware.appradio@1.0 \
+    vendor.oplus.hardware.biometrics.fingerprint@2.1 \
     vendor.oplus.hardware.biometrics.fingerprintservice@1.0 \
+    vendor.oplus.hardware.bluetooth_audio@1.0 \
     vendor.oplus.hardware.commondcs@1.0 \
     vendor.oplus.hardware.ims@1.0 \
     vendor.oplus.hardware.orms@1.0 \
