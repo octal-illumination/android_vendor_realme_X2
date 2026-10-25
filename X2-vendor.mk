@@ -482,7 +482,6 @@ PRODUCT_PACKAGES += \
     libwfdutils_proprietary \
     vendor.qti.hardware.wifidisplaysession@1.0_vendor \
     vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl \
-    android.hardware.sensors@2.0-ScopedWakelock \
     camera.device@1.0-impl \
     camera.device@3.2-impl \
     camera.device@3.3-impl \
@@ -626,7 +625,6 @@ PRODUCT_PACKAGES += \
     libcneapiclient \
     libcneoplookup \
     libcneqmiutils \
-    libcodec2_hidl@1.0 \
     libcodec2_vndk \
     libcom.oppo.calidatacontainer \
     libcom.qti.chinodeutils \
@@ -756,7 +754,6 @@ PRODUCT_PACKAGES += \
     libssc_default_listener \
     libssd \
     libstagefright_bufferpool@2.0.1 \
-    libstagefright_softomx \
     libsubsystem_control \
     libswregistrationalgo \
     libsystem_health_mon \
