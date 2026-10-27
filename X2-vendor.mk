@@ -624,7 +624,6 @@ PRODUCT_PACKAGES += \
     libcneapiclient \
     libcneoplookup \
     libcneqmiutils \
-    libcodec2_vndk \
     libcom.oppo.calidatacontainer \
     libcom.qti.chinodeutils \
     libconfigdb \
@@ -638,7 +637,6 @@ PRODUCT_PACKAGES += \
     libdisplayqos \
     libdpmqmihal \
     libdpps \
-    libdrm \
     libdrmfs \
     libdrmtime \
     libdsi_netctrl \
@@ -919,7 +917,6 @@ PRODUCT_PACKAGES += \
     libtracker_6dof_skel_8150 \
     libtracker_6dof_skel_8250 \
     vendor.qti.hardware.wifidisplaysession@1.0 \
-    android.hidl.base@1.0 \
     com.qualcomm.qti.dpm.api@1.0 \
     fm_helium \
     lib-imsvideocodec \
