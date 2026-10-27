@@ -605,7 +605,6 @@ PRODUCT_PACKAGES += \
     libadaptlaunch \
     libaoa \
     libappclassifier \
-    libavservices_minijail \
     libbase64 \
     libbluetooth_audio_session \
     libbtnv \
@@ -644,7 +643,6 @@ PRODUCT_PACKAGES += \
     libdrmtime \
     libdsi_netctrl \
     libeffects \
-    libeffectsconfig \
     libgameoptfeature \
     libgarden \
     libgarden_haltests_e2e \
@@ -753,7 +751,6 @@ PRODUCT_PACKAGES += \
     libssc \
     libssc_default_listener \
     libssd \
-    libstagefright_bufferpool@2.0.1 \
     libsubsystem_control \
     libswregistrationalgo \
     libsystem_health_mon \

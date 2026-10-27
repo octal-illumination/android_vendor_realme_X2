@@ -10995,32 +10995,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libavservices_minijail",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libavservices_minijail.so",
-            ],
-            shared_libs: [
-                "libbase",
-                "libminijail",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libbase64",
     owner: "realme",
     strip: {
@@ -12101,35 +12075,6 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "liblog",
                 "libeffectsconfig",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libeffectsconfig",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libeffectsconfig.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libtinyxml2",
-                "libutils",
-                "libmedia_helper",
-                "libcutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -15326,36 +15271,6 @@ cc_prebuilt_library_shared {
                 "libdiag",
                 "liblog",
                 "libQSEEComAPI",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libstagefright_bufferpool@2.0.1",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libstagefright_bufferpool@2.0.1.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "libfmq",
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "android.hardware.media.bufferpool@2.0",
                 "libc++",
                 "libc",
                 "libm",
