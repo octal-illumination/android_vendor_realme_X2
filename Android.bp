@@ -22771,7 +22771,16 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    device_specific: true,
+    // MANUAL POST-GENERATION EDIT -- re-apply after any extract-utils --regenerate_makefiles run.
+    // extract-utils hardcodes odm -> `device_specific: true` (bp_builder.py PARTITION_SPECIFIC_MAP),
+    // but the device tree also sources this HAL interface via hidl_interface, whose PartitionTag is
+    // structurally "system" (Soong has no `partition:` property). `device_specific` (= odm) therefore
+    // trips android/prebuilt.go checkInvariantsForSourceAndPrebuilt() -> bake abort
+    // "partition is different: system(...) != odm(...)".
+    // `odm_available: true` keeps the vendor variant's install path on /odm (see cc/module.go
+    // Odm_available doc) while leaving PartitionTag at "system", satisfying the invariant.
+    // Guarded by lint C58/C59 (roms/common/tools/build-lint-rmx1992.py).
+    odm_available: true,
 }
 
 cc_prebuilt_library_shared {
