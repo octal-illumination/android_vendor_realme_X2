@@ -70,6 +70,7 @@ PRODUCT_COPY_FILES += \
     vendor/realme/X2/proprietary/system_ext/etc/seccomp_policy/wfdservice.policy:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/seccomp_policy/wfdservice.policy \
     vendor/realme/X2/proprietary/system_ext/etc/sysconfig/qti_whitelist_system_ext.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/qti_whitelist_system_ext.xml \
     vendor/realme/X2/proprietary/system_ext/etc/wfdconfigsink.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/wfdconfigsink.xml \
+    vendor/realme/X2/proprietary/vendor/etc/IPACM_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/IPACM_cfg.xml \
     vendor/realme/X2/proprietary/vendor/etc/acdbdata/adsp_avs_config.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/adsp_avs_config.acdb \
     vendor/realme/X2/proprietary/vendor/etc/cacert_location.pem:$(TARGET_COPY_OUT_VENDOR)/etc/cacert_location.pem \
     vendor/realme/X2/proprietary/vendor/etc/camera/Charming.cng:$(TARGET_COPY_OUT_VENDOR)/etc/camera/Charming.cng \
@@ -119,6 +120,8 @@ PRODUCT_COPY_FILES += \
     vendor/realme/X2/proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.keymaster@4.0-service-qti.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.neuralnetworks@1.3-service-qti.rc \
+    vendor/realme/X2/proprietary/vendor/etc/init/android.hardware.power-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.power-service.rc \
+    vendor/realme/X2/proprietary/vendor/etc/init/android.hardware.thermal@2.0-service.qti.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.thermal@2.0-service.qti.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/cnd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cnd.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/dataadpl.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dataadpl.rc \
@@ -133,6 +136,8 @@ PRODUCT_COPY_FILES += \
     vendor/realme/X2/proprietary/vendor/etc/init/init.vendor.sensors.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.vendor.sensors.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/init_thermal-engine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init_thermal-engine.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/ipa_fws.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ipa_fws.rc \
+    vendor/realme/X2/proprietary/vendor/etc/init/ipacm-diag.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ipacm-diag.rc \
+    vendor/realme/X2/proprietary/vendor/etc/init/ipacm.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ipacm.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/netmgrd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/netmgrd.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/port-bridge.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/port-bridge.rc \
     vendor/realme/X2/proprietary/vendor/etc/init/qcrild.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/qcrild.rc \
@@ -313,8 +318,11 @@ PRODUCT_PACKAGES += \
     libGLESv2_adreno \
     libq3dtools_adreno \
     libq3dtools_esx \
+    audio.bluetooth.default \
     audio.bluetooth_qti.default \
     audio.primary.sm6150 \
+    audio.r_submix.default \
+    audio.usb.default \
     camera.qcom \
     sound_trigger.primary.sm6150 \
     vendor.qti.hardware.bluetooth_audio@2.0-impl \
@@ -605,7 +613,6 @@ PRODUCT_PACKAGES += \
     libadaptlaunch \
     libaoa \
     libappclassifier \
-    libavservices_minijail \
     libbase64 \
     libbluetooth_audio_session \
     libbtnv \
@@ -625,7 +632,6 @@ PRODUCT_PACKAGES += \
     libcneapiclient \
     libcneoplookup \
     libcneqmiutils \
-    libcodec2_vndk \
     libcom.oppo.calidatacontainer \
     libcom.qti.chinodeutils \
     libconfigdb \
@@ -636,15 +642,14 @@ PRODUCT_PACKAGES += \
     libcvpcpuRev_skel \
     libdataitems \
     libdisp-aba \
+    libdisplayconfig.qti \
     libdisplayqos \
     libdpmqmihal \
     libdpps \
-    libdrm \
     libdrmfs \
     libdrmtime \
     libdsi_netctrl \
     libeffects \
-    libeffectsconfig \
     libgameoptfeature \
     libgarden \
     libgarden_haltests_e2e \
@@ -706,6 +711,7 @@ PRODUCT_PACKAGES += \
     libqcmaputils \
     libqcrilFramework \
     libqcrildatactl \
+    libqdMetaData \
     libqdma_file_agent \
     libqisl \
     libqrtr \
@@ -717,6 +723,7 @@ PRODUCT_PACKAGES += \
     libqti-perfd \
     libqti-util \
     libqti-utils \
+    libqti_vndfwk_detect \
     libqtikeymaster4 \
     librcc \
     libreffeature \
@@ -753,7 +760,6 @@ PRODUCT_PACKAGES += \
     libssc \
     libssc_default_listener \
     libssd \
-    libstagefright_bufferpool@2.0.1 \
     libsubsystem_control \
     libswregistrationalgo \
     libsystem_health_mon \
@@ -767,6 +773,7 @@ PRODUCT_PACKAGES += \
     libtriplecam_video_optical_zoom \
     libtrustedapploader \
     libtzdrmgenprov \
+    libvndfwk_detect_jni.qti \
     libwms \
     libwpa_client \
     libwqe \
@@ -922,7 +929,6 @@ PRODUCT_PACKAGES += \
     libtracker_6dof_skel_8150 \
     libtracker_6dof_skel_8250 \
     vendor.qti.hardware.wifidisplaysession@1.0 \
-    android.hidl.base@1.0 \
     com.qualcomm.qti.dpm.api@1.0 \
     fm_helium \
     lib-imsvideocodec \
@@ -1072,6 +1078,8 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service.RMX1993 \
     android.hardware.keymaster@4.0-service-qti \
     android.hardware.neuralnetworks@1.3-service-qti \
+    android.hardware.power-service \
+    android.hardware.thermal@2.0-service.qti \
     qcrild \
     vendor.display.color@1.0-service \
     vendor.qti.hardware.alarm@1.0-service \
@@ -1089,6 +1097,8 @@ PRODUCT_PACKAGES += \
     imsqmidaemon \
     imsrcsd \
     init.qti.chg_policy \
+    ipacm \
+    ipacm-diag \
     irsc_util \
     loc_launcher \
     lowi-server \
