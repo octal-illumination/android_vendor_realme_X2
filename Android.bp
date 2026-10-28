@@ -496,7 +496,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libhardware",
                 "libcamera_metadata",
                 "libcamxfdengine",
@@ -526,7 +526,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libhardware",
                 "libcamera_metadata",
                 "libcamxfdengine",
@@ -5147,7 +5147,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/sensors.ssc.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libprotobuf-cpp-lite-3.9.1",
                 "liblog",
                 "libsnsapi",
                 "libssc",
@@ -5176,7 +5176,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/sensors.ssc.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libprotobuf-cpp-lite-3.9.1",
                 "liblog",
                 "libsnsapi",
                 "libssc",
@@ -7952,7 +7952,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libhardware",
                 "libcom.qti.chinodeutils",
                 "libsync",
@@ -8223,7 +8223,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libhardware",
                 "libcamera_metadata",
                 "libcom.qti.chinodeutils",
@@ -8264,7 +8264,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libhardware",
                 "libcamera_metadata",
                 "libcom.qti.chinodeutils",
@@ -11154,7 +11154,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libhardware",
                 "libc",
                 "libm",
@@ -14299,7 +14299,7 @@ cc_prebuilt_library_shared {
                 "android.hardware.radio.deprecated@1.0",
                 "libqdutils",
                 "qtimutex",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libvndksupport",
                 "libbase",
                 "libz",
@@ -14752,7 +14752,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsensorcal.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libprotobuf-cpp-lite-3.9.1",
                 "liblog",
                 "libssc",
                 "libutils",
@@ -14841,7 +14841,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libc++",
                 "libdiag",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libc",
                 "libm",
                 "libdl",
@@ -15030,7 +15030,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsnsapi.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libprotobuf-cpp-lite-3.9.1",
                 "libcutils",
                 "libutils",
                 "libqmi_common_so",
@@ -15060,7 +15060,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsnsdiaglog.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libprotobuf-cpp-lite-3.9.1",
                 "liblog",
                 "libdiag",
                 "libsensorslog",
@@ -15144,7 +15144,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libssc.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libprotobuf-cpp-lite-3.9.1",
                 "liblog",
                 "libsensorslog",
                 "libcutils",
@@ -15817,7 +15817,7 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "liblog",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libc++",
                 "libc",
                 "libm",
@@ -21772,7 +21772,7 @@ cc_prebuilt_library_shared {
                 "proprietary/odm/lib64/libcdm_metrics_protos.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libc++",
                 "libc",
                 "libm",
@@ -21797,7 +21797,7 @@ cc_prebuilt_library_shared {
                 "proprietary/odm/lib64/libcdm_protos.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libc++",
                 "libc",
                 "libm",
@@ -22329,7 +22329,7 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libhidlmemory",
                 "liblog",
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libprotobuf-cpp-lite-3.9.1",
                 "libutils",
                 "libc++",
                 "libc",
@@ -22358,7 +22358,7 @@ cc_prebuilt_library_shared {
                 "libbase",
                 "libcrypto",
                 "liblog",
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libprotobuf-cpp-lite-3.9.1",
                 "libstagefright_foundation",
                 "libutils",
                 "libc++",
@@ -23512,7 +23512,7 @@ cc_prebuilt_binary {
                 "android.hidl.safe_union@1.0",
                 "android.hidl.allocator@1.0",
                 "android.hidl.memory@1.0",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1",
                 "libsync",
                 "libc++",
                 "libc",
@@ -24628,7 +24628,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/sensors.qti",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libprotobuf-cpp-lite-3.9.1",
                 "liblog",
                 "libdiag",
                 "libssc",
@@ -25313,3 +25313,81 @@ install_symlink {
     installed_location: "lib64/libq3dtools_adreno.so",
     symlink_target: "/vendor/lib64/egl/libq3dtools_adreno.so",
 }
+
+// MANUAL POST-GENERATION ADD -- re-apply after any extract-utils --regenerate_makefiles run.
+// The stock F.26 blobs carry DT_NEEDED on the VERSIONED sonames libprotobuf-cpp-{lite,full}-3.9.1.so,
+// and 21 prebuilts below link them. extract-utils rewrote those deps to
+// "libprotobuf-cpp-*-3.9.1-vendorcompat", a module that existed in Android 11-13 but is GONE in
+// A16 (external/protobuf @android16-release defines only the unversioned libprotobuf-cpp-lite/-full),
+// so every one of those shared_libs was undefined => Soong abort. The modules are named after the
+// exact runtime soname instead, so build dependency and DT_NEEDED both agree.
+cc_prebuilt_library_shared {
+    name: "libprotobuf-cpp-lite-3.9.1",
+    owner: "realme",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libprotobuf-cpp-lite-3.9.1.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libprotobuf-cpp-lite-3.9.1.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libprotobuf-cpp-full-3.9.1",
+    owner: "realme",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libprotobuf-cpp-full-3.9.1.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libprotobuf-cpp-full-3.9.1.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
