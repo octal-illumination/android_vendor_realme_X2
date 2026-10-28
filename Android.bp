@@ -16114,62 +16114,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.display.config@1.0",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.display.config@1.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.display.config@2.0",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.display.config@2.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "vendor.display.postproc@1.0",
     owner: "realme",
     strip: {
@@ -22514,7 +22458,17 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    device_specific: true,
+    // MANUAL POST-GENERATION EDIT -- re-apply after any extract-utils --regenerate_makefiles run.
+    // extract-utils hardcodes odm -> `device_specific: true` (bp_builder.py PARTITION_SPECIFIC_MAP),
+    // but the device tree also builds this HAL interface via hidl_interface, which carries no
+    // specificity flag => ModuleBase.PartitionTag() = "system". `device_specific` (= odm) thereby
+    // trips android/prebuilt.go checkInvariantsForSourceAndPrebuilt():
+    //   "partition is different: system(...) != odm(...)"  [crave job 307833]
+    // `odm_available: true` keeps the vendor variant's install path on /odm (cc Odm_available doc:
+    // "the module will install its vendor variant to the /odm partition or /vendor/odm") while
+    // leaving PartitionTag at "system", satisfying the invariant. NB: `partition:` is NOT a Soong
+    // property -- adding one changes nothing.
+    odm_available: true,
 }
 
 cc_prebuilt_library_shared {
