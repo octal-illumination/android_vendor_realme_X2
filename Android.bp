@@ -9039,7 +9039,14 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     prefer: true,
-    soc_specific: true,
+    // FIX 2026-10-29 (corpus evidence): the base defines com.dsi.ant@1.0 as a hidl_interface in
+    // external/ant-wireless/hidl/interfaces/ant/1.0, with NO specificity flag => PartitionTag
+    // "system". soc_specific here => "vendor" => Soong aborts with
+    // "partition is different: system(com.dsi.ant@1.0) != vendor(prebuilt_com.dsi.ant@1.0)".
+    // vendor_available keeps PartitionTag at "system" (matching the source, exactly as the
+    // hidl_interface-generated module does internally) while still producing the vendor variant
+    // that installs to /vendor/lib64. Same mechanism as the fingerprint HAL fix (C58).
+    vendor_available: true,
 }
 
 cc_prebuilt_library_shared {
