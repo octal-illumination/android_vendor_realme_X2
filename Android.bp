@@ -25389,47 +25389,12 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-// MANUAL POST-GENERATION ADD -- re-apply after any extract-utils --regenerate_makefiles run.
-// OEM-VERIFIED (2026-10-28): the F.26 stock image ships these at vendor/lib{,64}, our blobs
-// declare them as DT_NEEDED, they appear in PRODUCT_PACKAGES, and NOTHING in the LOS 23.2 sync
-// set builds them - verified by fully scanning all Android.bp/Android.mk in the three caf sm8150
-// repos (audio/media/display @lineage-23.2-caf-sm8150) and the three vendor/qcom display repos.
-// caf_repo_modules.txt had listed them as caf-provided; that claim was false and is now removed.
-cc_prebuilt_library_shared {
-    name: "libqti_vndfwk_detect",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libqti_vndfwk_detect.so",
-            ],
-            shared_libs: [
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libqti_vndfwk_detect.so",
-            ],
-            shared_libs: [
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
-
+// REVERTED 2026-10-29: libqti_vndfwk_detect and libvndfwk_detect_jni.qti were shipped here on the
+// mistaken conclusion that NO synced repo builds them. They ARE built - by hardware/qcom-caf/common
+// (fwk-detect/Android.bp) as system_ext modules. Shipping vendor prebuilts of the same names caused
+// the build failure "partition is different: system_ext(libqti_vndfwk_detect) != vendor(prebuilt_...)".
+// The miss: the search covered the three caf sm8150 repos and the qcom display repos but NOT
+// hardware/qcom-caf/common. Another under-search false negative (LL-038).
 cc_prebuilt_library_shared {
     name: "librmnetctl",
     owner: "realme",
@@ -25451,41 +25416,6 @@ cc_prebuilt_library_shared {
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/librmnetctl.so",
-            ],
-            shared_libs: [
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libvndfwk_detect_jni.qti",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libvndfwk_detect_jni.qti.so",
-            ],
-            shared_libs: [
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libvndfwk_detect_jni.qti.so",
             ],
             shared_libs: [
                 "libc++",

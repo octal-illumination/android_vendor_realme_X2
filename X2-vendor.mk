@@ -1003,9 +1003,7 @@ PRODUCT_PACKAGES += \
     libwatermark_photo \
     libprotobuf-cpp-full-3.9.1 \
     libprotobuf-cpp-lite-3.9.1 \
-    libqti_vndfwk_detect \
     librmnetctl \
-    libvndfwk_detect_jni.qti \
     libwvhidl \
     libwvdrmengine \
     oplus_btaudio_offload_if \
