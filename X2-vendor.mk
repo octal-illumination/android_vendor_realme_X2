@@ -995,7 +995,6 @@ PRODUCT_PACKAGES += \
     libsnpe_loader \
     libsnpeml \
     libstblur_api \
-    libstdc++ \
     libswresample \
     libswscale \
     libsymphony-cpu \
@@ -1003,7 +1002,6 @@ PRODUCT_PACKAGES += \
     libwatermark_photo \
     libprotobuf-cpp-full-3.9.1 \
     libprotobuf-cpp-lite-3.9.1 \
-    librmnetctl \
     libwvhidl \
     libwvdrmengine \
     oplus_btaudio_offload_if \
