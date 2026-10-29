@@ -10528,6 +10528,21 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libQSEEComAPI.so",
+            ],
+            shared_libs: [
+                "libion",
+                "libcutils",
+                "libutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libQSEEComAPI.so",
@@ -10544,7 +10559,12 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    // 32-bit variant REQUIRED: libcppf is an arm-only (32-bit) prebuilt that links libQSEEComAPI.
+    // compile_multilib was "64", so no arm variant was ever created and job 308131 failed with
+    //   dependency "libQSEEComAPI" of "libcppf" missing variant:
+    //   os:android,image:vendor,arch:arm_armv8-2a_cortex-a55,link:shared
+    // "both" builds the arm variant alongside arm64. Guarded by lint C65.
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
