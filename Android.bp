@@ -10683,6 +10683,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libStDrvInt.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libStDrvInt.so",
@@ -10696,7 +10701,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -11167,6 +11172,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libcamera_nn_stub.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libcamera_nn_stub.so",
@@ -11189,7 +11199,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -11225,6 +11235,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libcamxfdalgov8.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libcamxfdalgov8.so",
@@ -11237,7 +11252,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -11249,6 +11264,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libcamxfdengine.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libcamxfdengine.so",
@@ -11267,7 +11287,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -11279,6 +11299,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libcamxstatscore.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libcamxstatscore.so",
@@ -11294,7 +11319,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -14834,6 +14859,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libsensorslog.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libsensorslog.so",
@@ -14847,7 +14877,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -14970,6 +15000,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libsns_fastRPC_util.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libsns_fastRPC_util.so",
@@ -14985,7 +15020,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -15052,6 +15087,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libsnsapi.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libsnsapi.so",
@@ -15070,7 +15110,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -15082,6 +15122,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libsnsdiaglog.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libsnsdiaglog.so",
@@ -15102,7 +15147,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -15166,6 +15211,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libssc.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/libssc.so",
@@ -15187,7 +15237,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -17028,6 +17078,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/vendor.qti.hardware.dsp@1.0.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/vendor.qti.hardware.dsp@1.0.so",
@@ -17044,7 +17099,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -18171,6 +18226,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/vendor.qti.hardware.tui_comm@1.0.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so",
@@ -18187,7 +18247,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     soc_specific: true,
 }
@@ -20519,6 +20579,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libwfdclient.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/system_ext/lib64/libwfdclient.so",
@@ -20543,7 +20608,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     system_ext_specific: true,
 }
@@ -21931,6 +21996,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/odm/lib/libhwconfigurationutil.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/odm/lib64/libhwconfigurationutil.so",
@@ -21944,7 +22014,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     device_specific: true,
 }
@@ -22035,6 +22105,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/odm/lib/libormshalclient.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/odm/lib64/libormshalclient.so",
@@ -22055,7 +22130,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     device_specific: true,
 }
@@ -22385,6 +22460,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/oplus_btaudio_offload_if.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/odm/lib64/oplus_btaudio_offload_if.so",
@@ -22404,7 +22484,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     device_specific: true,
 }
@@ -22510,6 +22590,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/odm/lib/vendor.oplus.hardware.bluetooth_audio@1.0.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/odm/lib64/vendor.oplus.hardware.bluetooth_audio@1.0.so",
@@ -22526,7 +22611,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     device_specific: true,
 }
@@ -22594,6 +22679,11 @@ cc_prebuilt_library_shared {
         none: true,
     },
     target: {
+        android_arm: {
+            srcs: [
+                "proprietary/odm/lib/vendor.oplus.hardware.orms@1.0.so",
+            ],
+        },
         android_arm64: {
             srcs: [
                 "proprietary/odm/lib64/vendor.oplus.hardware.orms@1.0.so",
@@ -22610,7 +22700,7 @@ cc_prebuilt_library_shared {
             ],
         },
     },
-    compile_multilib: "64",
+    compile_multilib: "both",
     prefer: true,
     device_specific: true,
 }
