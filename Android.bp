@@ -20806,6 +20806,16 @@ cc_prebuilt_library_shared {
     device_specific: true,
 }
 
+// NOTE (job 308190 failure): this module depends on "libstdc++_vendor", NOT "libstdc++".
+// The base defines libstdc++ as a HOST cc_library only - its sole variant is
+// os:linux_glibc,arch:x86_64,link:static - so depending on it from a vendor module fails with
+//   dependency "libstdc++" of "libCOppLceTonemapAPI" missing variant:
+//   os:android,image:vendor,link:shared
+// The DEVICE shared variant is declared separately as `libstdc++_vendor`
+// (cc_library_shared, soc_specific: true). The blob genuinely needs libstdc++.so at runtime
+// (DT_NEEDED), so the fix is to depend on the device variant, not to drop the dependency.
+// Guarded by lint C79. (Blueprint forbids #-comments inside an array literal - bpfmt rejected an
+// earlier attempt that placed this note in shared_libs; hence the note lives out here.)
 cc_prebuilt_library_shared {
     name: "libCOppLceTonemapAPI",
     owner: "realme",
@@ -20822,7 +20832,7 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libc",
                 "libm",
-                "libstdc++",
+                "libstdc++_vendor",
                 "libdl",
             ],
         },
