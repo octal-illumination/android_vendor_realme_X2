@@ -21392,6 +21392,7 @@ cc_prebuilt_library_shared {
                 "proprietary/odm/lib64/libavcodec.so",
             ],
         },
+},
         shared_libs: [
         "libavutil",
         "libswresample",
@@ -21400,7 +21401,6 @@ cc_prebuilt_library_shared {
         "libdl",
         "liblog",
     ],
-},
     compile_multilib: "64",
     check_elf_files: false,
     prefer: true,
