@@ -11,7 +11,8 @@
 //   packaging / overriding commands for target `.../vendor/lib64/libprotobuf-cpp-full-3.9.1.so'
 // Same class as c97abc1 (base-provided prebuilts). Consumers keep resolving to the base copy.
 // LINT GAP: found by a one-pass duplicate-target scan of out/soong/installs-*.mk -- the whole
-// class (4 targets) surfaced at once instead of one build cycle each. Rule C80 implements this.
+// class (4 targets) surfaced at once instead of one build cycle each. Rule C82 implements this.
+// (This note previously cited "Rule C80", which was never written -- see SPECIFICATION.md LL-048.)
 //
 // Automatically generated file. DO NOT MODIFY
 //
@@ -11109,7 +11110,7 @@ cc_prebuilt_library_shared {
 // cld80211_get_nl_socket_ctx -- a symbol our F.26-era prebuilt does NOT export. The
 // prebuilt shadowed the source module (prefer: true), so the link failed with:
 //   undefined symbol: cld80211_get_nl_socket_ctx
-// Same class as c97abc1 (drop base-provided prebuilts). Guarded by lint C80/dup-target scan.
+// Same class as c97abc1 (drop base-provided prebuilts). Guarded by lint C81 (no prebuilt may prefer over a base source module) and C82 (install-path collision scan).
 
 cc_prebuilt_library_shared {
     name: "libcne",
@@ -16419,7 +16420,7 @@ cc_prebuilt_library_shared {
 // Same class as commit c97abc1 (removed base-provided librmnetctl + libstdc++). Consumers that
 // referenced the base name (line ~9472) keep working; only our duplicate is gone.
 // LINT GAP FOUND: C14/C64 compare module NAMES, but the collision is on the INSTALLED FILENAME
-// (stem/name), so a suffixed module with a shared stem slips through. New rule C80 covers it.
+// (stem/name), so a suffixed module with a shared stem slips through. New rule C82 covers it.
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.cvp@1.0_vendor",
@@ -25089,7 +25090,7 @@ install_symlink {
 // so we SHIP the OEM libraries rather than drop the dependency.
 // Full transitive closure resolved and verified: the other 17 dependencies are all
 // provided by the base tree, so these three are sufficient.
-// Guarded by lint C80 (vendor DT_NEEDED closure vs the base module index).
+// Guarded by lint C23 (vendor DT_NEEDED closure vs the base module index).
 // ---------------------------------------------------------------------------
 
 cc_prebuilt_library_shared {
