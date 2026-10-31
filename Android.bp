@@ -20462,6 +20462,8 @@ cc_prebuilt_library_shared {
                 "proprietary/odm/lib64/libCOppLceTonemapAPI.so",
             ],
             shared_libs: [
+            "libstdc++_vendor",
+
                 "libOpenCL",
                 "liblog",
                 "libc",
@@ -21390,12 +21392,19 @@ cc_prebuilt_library_shared {
                 "proprietary/odm/lib64/libavcodec.so",
             ],
         },
-    },
+        shared_libs: [
+        "libavutil",
+        "libswresample",
+        "libc",
+        "libm",
+        "libdl",
+        "liblog",
+    ],
+},
     compile_multilib: "64",
     check_elf_files: false,
     prefer: true,
-    device_specific: true,
-}
+    device_specific: true,}
 
 cc_prebuilt_library_shared {
     name: "libavformat",

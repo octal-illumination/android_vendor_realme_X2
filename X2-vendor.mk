@@ -642,9 +642,7 @@ PRODUCT_PACKAGES += \
     libdsi_netctrl \
     libeffects \
     libgameoptfeature \
-    libgarden \
     libgarden_haltests_e2e \
-    libgdtap \
     libgps.utils \
     libhbtpclient \
     libhbtpdsp \
@@ -653,20 +651,16 @@ PRODUCT_PACKAGES += \
     libhexagon_nn_stub \
     libhta_hexagon_runtime \
     libizat_client_api \
-    libizat_core \
     libjnihelper \
     libjson \
     libkeymasterdeviceutils \
     libkeymasterprovision \
     libkeymasterutils \
-    liblbs_core \
     liblearningmodule \
     libloadalgo_stub \
-    libloc_api_v02 \
     libloc_core \
     libloc_socket \
     liblocation_api \
-    liblocationservice \
     liblocationservice_glue \
     liblowi_client \
     liblowi_wifihal \
@@ -910,19 +904,11 @@ PRODUCT_PACKAGES += \
     libwfdavenhancements \
     libwfdmmsrc_system \
     libwfdservice \
-    libdsp_streamer_qvrcam_receiver \
     libeye_tracking_dsp_sample_skel \
-    libqvr_cam_dsp_driver_skel \
-    libqvr_dsp_driver_skel \
-    libtracker_6dof_skel_8150 \
-    libtracker_6dof_skel_8250 \
     vendor.qti.hardware.wifidisplaysession@1.0 \
     com.qualcomm.qti.dpm.api@1.0 \
     fm_helium \
-    lib-imsvideocodec \
-    lib-imsvt \
     lib-imsvtextutils \
-    lib-imsvtutils \
     libdiag_system \
     libdpmctmgr \
     libdpmfdmgr \
@@ -930,7 +916,6 @@ PRODUCT_PACKAGES += \
     libdpmtcm \
     libfm-hci \
     libimscamera_jni \
-    libimsmedia_jni \
     libwfdclient \
     vendor.qti.diaghal@1.0 \
     vendor.qti.hardware.fm@1.0 \
@@ -1060,7 +1045,6 @@ PRODUCT_PACKAGES += \
     cnss-daemon \
     dpmQmiMgr \
     dspservice \
-    garden_app \
     hvdcp_opti \
     android.hardware.bluetooth@1.0-service-qti \
     android.hardware.gatekeeper@1.0-service-qti \
