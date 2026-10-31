@@ -1000,8 +1000,8 @@ PRODUCT_PACKAGES += \
     libsymphony-cpu \
     libsymphonypower \
     libwatermark_photo \
-    libprotobuf-cpp-full-3.9.1 \
-    libprotobuf-cpp-lite-3.9.1 \
+    libprotobuf-cpp-full-3.9.1-vendorcompat \
+    libprotobuf-cpp-lite-3.9.1-vendorcompat \
     libwvhidl \
     libwvdrmengine \
     oplus_btaudio_offload_if \
