@@ -1,3 +1,17 @@
+// NOTE (link failure, 2026-10-31): the F.26 prebuilt camera.device@X-impl blobs were REMOVED.
+// They shadowed the AOSP source-built impl modules (prefer: true), and camera.provider@2.4-
+// {legacy,external} link against the impls: the prebuilts do not export the A16-ABI symbols
+//   android::hardware::camera::device::VX_Y::implementation::CameraDevice::CameraDevice(...)
+// (undefined at link). The source impls (hardware/interfaces/camera/device/*) provide them.
+// Same class as c97abc1 / the libcld80211 removal: drop prebuilts that shadow source modules.
+// NOTE (Soong fsgen conflict, 2026-10-31): REMOVED modules
+//   libprotobuf-cpp-full-3.9.1 / libprotobuf-cpp-lite-3.9.1  (both ABIs)
+// The BASE already provides them via hardware/lineage/compat/...-vendorcompat,
+// which installs to the SAME /vendor/lib{,64} paths, so Soong aborted with:
+//   packaging / overriding commands for target `.../vendor/lib64/libprotobuf-cpp-full-3.9.1.so'
+// Same class as c97abc1 (base-provided prebuilts). Consumers keep resolving to the base copy.
+// LINT GAP: found by a one-pass duplicate-target scan of out/soong/installs-*.mk -- the whole
+// class (4 targets) surfaced at once instead of one build cycle each. Rule C80 implements this.
 //
 // Automatically generated file. DO NOT MODIFY
 //
@@ -496,7 +510,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libhardware",
                 "libcamera_metadata",
                 "libcamxfdengine",
@@ -526,7 +540,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libhardware",
                 "libcamera_metadata",
                 "libcamxfdengine",
@@ -5147,7 +5161,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/sensors.ssc.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libsnsapi",
                 "libssc",
@@ -5176,7 +5190,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/sensors.ssc.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libsnsapi",
                 "libssc",
@@ -7138,350 +7152,17 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "camera.device@1.0-impl",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/camera.device@1.0-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libhidlmemory",
-                "libutils",
-                "android.hardware.camera.device@1.0",
-                "vendor.qti.hardware.camera.device@1.0",
-                "android.hardware.camera.common@1.0",
-                "android.hardware.graphics.allocator@2.0",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "android.hardware.graphics.common@1.0",
-                "android.hidl.allocator@1.0",
-                "android.hidl.memory@1.0",
-                "libcutils",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// [removed 2026-10-31: F.26 prebuilt camera.device@1.0-impl shadowed the AOSP source impl and lacked
 
-cc_prebuilt_library_shared {
-    name: "camera.device@3.2-impl",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/camera.device@3.2-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libutils",
-                "libcutils",
-                "android.hardware.camera.device@3.2",
-                "android.hardware.camera.provider@2.4",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libfmq",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "camera.device@3.3-impl",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/camera.device@3.3-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libutils",
-                "libcutils",
-                "camera.device@3.2-impl",
-                "android.hardware.camera.device@3.2",
-                "android.hardware.camera.device@3.3",
-                "android.hardware.camera.provider@2.4",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libfmq",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// [removed 2026-10-31: F.26 prebuilt camera.device@3.3-impl shadowed the AOSP source impl and lacked
 
-cc_prebuilt_library_shared {
-    name: "camera.device@3.4-external-impl",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/camera.device@3.4-external-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libutils",
-                "libcutils",
-                "camera.device@3.2-impl",
-                "camera.device@3.3-impl",
-                "android.hardware.camera.device@3.2",
-                "android.hardware.camera.device@3.3",
-                "android.hardware.camera.device@3.4",
-                "android.hardware.camera.provider@2.4",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libfmq",
-                "libsync",
-                "libyuv",
-                "libjpeg",
-                "libexif",
-                "libtinyxml2",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "camera.device@3.4-impl",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/camera.device@3.4-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libutils",
-                "libcutils",
-                "camera.device@3.2-impl",
-                "camera.device@3.3-impl",
-                "android.hardware.camera.device@3.2",
-                "android.hardware.camera.device@3.3",
-                "android.hardware.camera.device@3.4",
-                "android.hardware.camera.provider@2.4",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libfmq",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// [removed 2026-10-31: F.26 prebuilt camera.device@3.4-impl shadowed the AOSP source impl and lacked
 
-cc_prebuilt_library_shared {
-    name: "camera.device@3.5-external-impl",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/camera.device@3.5-external-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libutils",
-                "libcutils",
-                "camera.device@3.2-impl",
-                "camera.device@3.3-impl",
-                "camera.device@3.4-external-impl",
-                "android.hardware.camera.device@3.2",
-                "android.hardware.camera.device@3.3",
-                "android.hardware.camera.device@3.4",
-                "android.hardware.camera.device@3.5",
-                "android.hardware.camera.provider@2.4",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libfmq",
-                "libsync",
-                "libyuv",
-                "libjpeg",
-                "libexif",
-                "libtinyxml2",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "camera.device@3.5-impl",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/camera.device@3.5-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libutils",
-                "libcutils",
-                "camera.device@3.2-impl",
-                "camera.device@3.3-impl",
-                "camera.device@3.4-impl",
-                "android.hardware.camera.device@3.2",
-                "android.hardware.camera.device@3.3",
-                "android.hardware.camera.device@3.4",
-                "android.hardware.camera.device@3.5",
-                "android.hardware.camera.provider@2.4",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// [removed 2026-10-31: F.26 prebuilt camera.device@3.5-impl shadowed the AOSP source impl and lacked
 
-cc_prebuilt_library_shared {
-    name: "camera.device@3.6-external-impl",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/camera.device@3.6-external-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libutils",
-                "libcutils",
-                "camera.device@3.2-impl",
-                "camera.device@3.3-impl",
-                "camera.device@3.4-external-impl",
-                "camera.device@3.5-external-impl",
-                "android.hardware.camera.device@3.2",
-                "android.hardware.camera.device@3.3",
-                "android.hardware.camera.device@3.4",
-                "android.hardware.camera.device@3.5",
-                "android.hardware.camera.device@3.6",
-                "android.hardware.camera.provider@2.4",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libfmq",
-                "libsync",
-                "libyuv",
-                "libjpeg",
-                "libexif",
-                "libtinyxml2",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "com.qti.sensor.gc2375",
@@ -7952,7 +7633,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libhardware",
                 "libcom.qti.chinodeutils",
                 "libsync",
@@ -8223,7 +7904,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libhardware",
                 "libcamera_metadata",
                 "libcom.qti.chinodeutils",
@@ -8264,7 +7945,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libhardware",
                 "libcamera_metadata",
                 "libcom.qti.chinodeutils",
@@ -11191,7 +10872,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_cci",
                 "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libhardware",
                 "libc",
                 "libm",
@@ -11430,32 +11111,13 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libcld80211",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libcld80211.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "libnl",
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// NOTE (link failure, 2026-10-31): REMOVED the F.26 prebuilt libcld80211.
+// The CAF source tree (hardware/qcom-caf/wlan/cld80211-lib) builds libcld80211, and the
+// in-tree qcwcn wifi_hal.cpp (whole-statically linked into AOSP libwifi-hal) references
+// cld80211_get_nl_socket_ctx -- a symbol our F.26-era prebuilt does NOT export. The
+// prebuilt shadowed the source module (prefer: true), so the link failed with:
+//   undefined symbol: cld80211_get_nl_socket_ctx
+// Same class as c97abc1 (drop base-provided prebuilts). Guarded by lint C80/dup-target scan.
 
 cc_prebuilt_library_shared {
     name: "libcne",
@@ -14351,7 +14013,7 @@ cc_prebuilt_library_shared {
                 "android.hardware.radio.deprecated@1.0",
                 "libqdutils",
                 "qtimutex",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libvndksupport",
                 "libbase",
                 "libz",
@@ -14804,7 +14466,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsensorcal.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libssc",
                 "libutils",
@@ -14898,7 +14560,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libc++",
                 "libdiag",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libc",
                 "libm",
                 "libdl",
@@ -15097,7 +14759,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsnsapi.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "libcutils",
                 "libutils",
                 "libqmi_common_so",
@@ -15132,7 +14794,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsnsdiaglog.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libdiag",
                 "libsensorslog",
@@ -15221,7 +14883,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libssc.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libsensorslog",
                 "libcutils",
@@ -15894,7 +15556,7 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "liblog",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libc++",
                 "libc",
                 "libm",
@@ -16753,34 +16415,15 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.camera.postproc@1.0_vendor",
-    stem: "vendor.qti.hardware.camera.postproc@1.0",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.qti.hardware.camera.postproc@1.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// NOTE (Soong analysis, 2026-10-31): REMOVED module vendor.qti.hardware.camera.postproc@1.0_vendor.
+// It declared stem: "vendor.qti.hardware.camera.postproc@1.0" (soc_specific -> /vendor), but the
+// BASE already provides vendor/qcom/opensource/interfaces/camera/postproc/1.0 -- its android_vendor
+// variant installs the SAME path, so Soong failed with:
+//   packaging conflict at lib64/vendor.qti.hardware.camera.postproc@1.0.so
+// Same class as commit c97abc1 (removed base-provided librmnetctl + libstdc++). Consumers that
+// referenced the base name (line ~9472) keep working; only our duplicate is gone.
+// LINT GAP FOUND: C14/C64 compare module NAMES, but the collision is on the INSTALLED FILENAME
+// (stem/name), so a suffixed module with a shared stem slips through. New rule C80 covers it.
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.cvp@1.0_vendor",
@@ -18797,6 +18440,14 @@ prebuilt_rfsa {
 }
 
 cc_prebuilt_library_shared {
+// NOTE (Soong analysis, 2026-10-31): libmdnssd was REMOVED from shared_libs below.
+// The base defines it in external/mdnsresponder WITHOUT vendor_available, so a vendor
+// module may not depend on it -- Soong fails the *static* variant with:
+//   depends on //external/mdnsresponder:libmdnssd ... add //vendor/realme/X2 to visibility
+// The blob genuinely needs it at runtime (DT_NEEDED, both ABIs), and the base still
+// installs libmdnssd.so to /system, which the default namespace resolves for system_ext
+// libs -- so dropping the build-time declaration is correct, not a workaround.
+// Guarded by lint C81 (vendor shared_libs must be vendor_available in the base).
     name: "libmiracastsystem",
     owner: "realme",
     strip: {
@@ -18817,7 +18468,6 @@ cc_prebuilt_library_shared {
                 "libnetutils",
                 "libwfdclient",
                 "libaudioclient",
-                "libmdnssd",
                 "liblog",
                 "libkeystore_binder",
                 "libc++",
@@ -18840,7 +18490,6 @@ cc_prebuilt_library_shared {
                 "libnetutils",
                 "libwfdclient",
                 "libaudioclient",
-                "libmdnssd",
                 "liblog",
                 "libkeystore_binder",
                 "libc++",
@@ -21872,7 +21521,7 @@ cc_prebuilt_library_shared {
                 "proprietary/odm/lib64/libcdm_metrics_protos.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libc++",
                 "libc",
                 "libm",
@@ -21897,7 +21546,7 @@ cc_prebuilt_library_shared {
                 "proprietary/odm/lib64/libcdm_protos.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libc++",
                 "libc",
                 "libm",
@@ -22418,7 +22067,7 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libhidlmemory",
                 "liblog",
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "libutils",
                 "libc++",
                 "libc",
@@ -22447,7 +22096,7 @@ cc_prebuilt_library_shared {
                 "libbase",
                 "libcrypto",
                 "liblog",
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "libstagefright_foundation",
                 "libutils",
                 "libc++",
@@ -23616,7 +23265,7 @@ cc_prebuilt_binary {
                 "android.hidl.safe_union@1.0",
                 "android.hidl.allocator@1.0",
                 "android.hidl.memory@1.0",
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libsync",
                 "libc++",
                 "libc",
@@ -24732,7 +24381,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/sensors.qti",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libdiag",
                 "libssc",
@@ -25425,75 +25074,7 @@ install_symlink {
 // A16 (external/protobuf @android16-release defines only the unversioned libprotobuf-cpp-lite/-full),
 // so every one of those shared_libs was undefined => Soong abort. The modules are named after the
 // exact runtime soname instead, so build dependency and DT_NEEDED both agree.
-cc_prebuilt_library_shared {
-    name: "libprotobuf-cpp-lite-3.9.1",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libprotobuf-cpp-lite-3.9.1.so",
-            ],
-            shared_libs: [
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libprotobuf-cpp-lite-3.9.1.so",
-            ],
-            shared_libs: [
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "libprotobuf-cpp-full-3.9.1",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libprotobuf-cpp-full-3.9.1.so",
-            ],
-            shared_libs: [
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libprotobuf-cpp-full-3.9.1.so",
-            ],
-            shared_libs: [
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
 
 // REVERTED 2026-10-29: libqti_vndfwk_detect and libvndfwk_detect_jni.qti were shipped here on the
 // mistaken conclusion that NO synced repo builds them. They ARE built - by hardware/qcom-caf/common
@@ -25501,3 +25082,177 @@ cc_prebuilt_library_shared {
 // the build failure "partition is different: system_ext(libqti_vndfwk_detect) != vendor(prebuilt_...)".
 // The miss: the search covered the three caf sm8150 repos and the qcom display repos but NOT
 // hardware/qcom-caf/common. Another under-search false negative (LL-038).
+
+// ---------------------------------------------------------------------------
+// NOTE (Soong analysis failure, 2026-10-31): libmiracastsystem declares
+//   shared_libs ["libkeystore_binder"]
+// but LOS 23.2 / A16 provides NO module by that name -- keystore1 was dropped when
+// keystore2 replaced it. Checked against the real tree's module index (49,315 modules):
+// libkeystore_binder, libkeystore_aidl and libkeystore_parcelables are ALL absent.
+// F.26 ships all three in /system/lib{,64}; our blobs genuinely need them (DT_NEEDED),
+// so we SHIP the OEM libraries rather than drop the dependency.
+// Full transitive closure resolved and verified: the other 17 dependencies are all
+// provided by the base tree, so these three are sufficient.
+// Guarded by lint C80 (vendor DT_NEEDED closure vs the base module index).
+// ---------------------------------------------------------------------------
+
+cc_prebuilt_library_shared {
+    name: "libkeystore_binder",
+    owner: "realme",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libkeystore_binder.so",
+            ],
+            shared_libs: [
+                "android.hardware.keymaster@4.0",
+                "libbinder",
+                "libc",
+                "libc++",
+                "libdl",
+                "libhidlbase",
+                "libkeymaster4support",
+                "libkeystore_aidl",
+                "libkeystore_parcelables",
+                "liblog",
+                "libm",
+                "libprotobuf-cpp-lite",
+                "libutils",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libkeystore_binder.so",
+            ],
+            shared_libs: [
+                "android.hardware.keymaster@4.0",
+                "libbinder",
+                "libc",
+                "libc++",
+                "libdl",
+                "libhidlbase",
+                "libkeymaster4support",
+                "libkeystore_aidl",
+                "libkeystore_parcelables",
+                "liblog",
+                "libm",
+                "libprotobuf-cpp-lite",
+                "libutils",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libkeystore_aidl",
+    owner: "realme",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libkeystore_aidl.so",
+            ],
+            shared_libs: [
+                "libbinder",
+                "libc",
+                "libc++",
+                "libcutils",
+                "libdl",
+                "libhardware",
+                "libhidlbase",
+                "libkeystore_parcelables",
+                "liblog",
+                "libm",
+                "libselinux",
+                "libutils",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libkeystore_aidl.so",
+            ],
+            shared_libs: [
+                "libbinder",
+                "libc",
+                "libc++",
+                "libcutils",
+                "libdl",
+                "libhardware",
+                "libhidlbase",
+                "libkeystore_parcelables",
+                "liblog",
+                "libm",
+                "libselinux",
+                "libutils",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libkeystore_parcelables",
+    owner: "realme",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/libkeystore_parcelables.so",
+            ],
+            shared_libs: [
+                "android.hardware.keymaster@4.0",
+                "android.hardware.keymaster@4.1",
+                "libbinder",
+                "libc",
+                "libc++",
+                "libdl",
+                "libhardware",
+                "libhidlbase",
+                "libkeymaster4_1support",
+                "libkeymaster4support",
+                "libkeystore-attestation-application-id",
+                "liblog",
+                "libm",
+                "libprotobuf-cpp-lite",
+                "libutils",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libkeystore_parcelables.so",
+            ],
+            shared_libs: [
+                "android.hardware.keymaster@4.0",
+                "android.hardware.keymaster@4.1",
+                "libbinder",
+                "libc",
+                "libc++",
+                "libdl",
+                "libhardware",
+                "libhidlbase",
+                "libkeymaster4_1support",
+                "libkeymaster4support",
+                "libkeystore-attestation-application-id",
+                "liblog",
+                "libm",
+                "libprotobuf-cpp-lite",
+                "libutils",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
