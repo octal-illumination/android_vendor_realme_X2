@@ -2311,7 +2311,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -2538,7 +2537,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -2587,7 +2585,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -2720,7 +2717,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -3025,7 +3021,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -4559,7 +4554,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -4608,7 +4602,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -4659,7 +4652,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -6241,7 +6233,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -11910,7 +11901,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -12436,7 +12426,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -12492,7 +12481,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
-    prefer: true,
     soc_specific: true,
 }
 
@@ -22197,7 +22185,6 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
-    prefer: true,
     // MANUAL POST-GENERATION EDIT -- re-apply after any extract-utils --regenerate_makefiles run.
     // extract-utils hardcodes odm -> `device_specific: true` (bp_builder.py PARTITION_SPECIFIC_MAP),
     // but the device tree also builds this HAL interface via hidl_interface, which carries no
