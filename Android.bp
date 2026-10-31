@@ -10734,36 +10734,16 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libbluetooth_audio_session",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libbluetooth_audio_session.so",
-            ],
-            shared_libs: [
-                "android.hardware.bluetooth.audio@2.0",
-                "libbase",
-                "libcutils",
-                "libfmq",
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
+// NOTE (build failure, 2026-10-31): the F.26 prebuilt libbluetooth_audio_session was REMOVED.
+// It was declared with prefer: true, so Soong chose it over base's SOURCE module
+// (hardware/interfaces/bluetooth/audio/utils/Android.bp -> cc_library_shared { vendor: true,
+// export_include_dirs: ["session/"] }). A prebuilt exports no headers, so
+// packages/modules/Bluetooth/system/audio_bluetooth_hw/device_port_proxy_hidl.cc could not find
+// BluetoothAudioSessionControl_2_1.h. Evidence: the failing compile carried
+// -I.../bluetooth/audio/utils/aidl_session but NOT -I.../bluetooth/audio/utils/session, and
+// "libbluetooth_audio_session" appears 0 times in the entire build log (prebuilts are copied,
+// never compiled). Same class as c97abc1 and the camera-impl / libcld80211 drops in d861847.
+// The base module installs the same vendor/lib64 path, so package references keep resolving.
 
 cc_prebuilt_library_shared {
     name: "libbtnv",
