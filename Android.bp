@@ -25240,3 +25240,18 @@ cc_prebuilt_library_shared {
     prefer: true,
     system_ext_specific: true,
 }
+
+// OEM libdav1d (odm). Android 16 rejects ELF files in PRODUCT_COPY_FILES unconditionally, so this blob must be
+// a module. It does NOT shadow the base module of the same library (that one is named libdav1d and installs to
+// vendor/system); this keeps the OEM copy on its original path with its exact versioned filename.
+cc_prebuilt_library_shared {
+    name: "libdav1d_odm",
+    owner: "realme",
+    strip: {
+        none: true,
+    },
+    filename_from_src: true,
+    compile_multilib: "64",
+    device_specific: true,
+    srcs: ["proprietary/odm/lib64/libdav1d.so.4"],
+}
