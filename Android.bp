@@ -20469,13 +20469,18 @@ cc_prebuilt_library_shared {
         "libdl",
         "liblog",
         "libm",
-        "libstdc++",
     ],
         },
     },
     compile_multilib: "64",
     prefer: true,
     device_specific: true,
+    // check_elf_files: false — the platform's documented fallback, with the reason on the record.
+    // This F.26 blob has DT_NEEDED libstdc++.so. In this tree `libstdc++` is a bare cc_library with no
+    // vendor variant (soong: "dependency libstdc++ missing variant"), and `libstdc++_vendor` does not
+    // produce that soname (check_elf_file: "DT_NEEDED libstdc++.so is not specified"). No declaration can
+    // satisfy both, so the check is bypassed — the runtime dependency is bionic's /system/lib64 stub.
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_shared {
