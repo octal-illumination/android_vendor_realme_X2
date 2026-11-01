@@ -10148,11 +10148,11 @@ cc_prebuilt_library_shared {
                 "libc",
             ],
         },
-        allow_undefined_symbols: true,
 },
     compile_multilib: "64",
     prefer: true,
     soc_specific: true,
+    allow_undefined_symbols: true,
 }
 
 cc_prebuilt_library_shared {
@@ -10176,11 +10176,11 @@ cc_prebuilt_library_shared {
                 "libdl",
             ],
         },
-        stem: "libaisd",
 },
     compile_multilib: "64",
     prefer: true,
     soc_specific: true,
+    stem: "libaisd",
 }
 
 cc_prebuilt_library_shared {
