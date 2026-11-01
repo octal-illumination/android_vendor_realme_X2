@@ -10861,27 +10861,19 @@ cc_prebuilt_library_shared {
             srcs: [
                 "proprietary/vendor/lib64/libcamera_nn_stub.so",
             ],
-            shared_libs: [
-                "libc++",
-                "libcutils",
-                "liblog",
-                "libcdsprpc",
-                "libqdMetaData",
-                "libsnsapi",
-                "libqmi_common_so",
-                "libqmi_cci",
-                "libqmi_encdec",
-                "libprotobuf-cpp-full-3.9.1-vendorcompat",
-                "libhardware",
-                "libc",
-                "libm",
-                "libdl",
-            ],
         },
     },
     compile_multilib: "both",
     prefer: true,
     soc_specific: true,
+    shared_libs: [
+        "libqmi_encdec",
+        "libcdsprpc",
+        "libprotobuf-cpp-full-3.9.1-vendorcompat",
+        "libqmi_cci",
+        "libqmi_common_so",
+        "libsnsapi",
+    ],
 }
 
 cc_prebuilt_library_shared {
@@ -20649,31 +20641,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libVDBlurless",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/libVDBlurless.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcdsprpc",
-                "libm",
-                "libdl",
-                "libc",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libVDBlurlessAPI_v2",
     owner: "realme",
     strip: {
@@ -21291,21 +21258,17 @@ cc_prebuilt_library_shared {
             srcs: [
                 "proprietary/odm/lib64/libarcsoft_portrait_super_night_raw.so",
             ],
-            shared_libs: [
-                "libmpbase",
-                "libOpenCL",
-                "libarcsoft_portraitSN_hvx_stub",
-                "libcdsprpc",
-                "liblog",
-                "libc",
-                "libm",
-                "libdl",
-            ],
         },
     },
     compile_multilib: "64",
     prefer: true,
     device_specific: true,
+    shared_libs: [
+        "libarcsoft_portraitSN_hvx_stub",
+        "libOpenCL",
+        "libmpbase",
+        "libcdsprpc",
+    ],
 }
 
 cc_prebuilt_library_shared {
@@ -21394,21 +21357,17 @@ cc_prebuilt_library_shared {
             srcs: [
                 "proprietary/odm/lib64/libarcsoft_super_night_raw.so",
             ],
-            shared_libs: [
-                "libmpbase",
-                "libOpenCL",
-                "libarcsoft_hdrplus_hvx_stub",
-                "libcdsprpc",
-                "liblog",
-                "libc",
-                "libm",
-                "libdl",
-            ],
         },
     },
     compile_multilib: "64",
     prefer: true,
     device_specific: true,
+    shared_libs: [
+        "libarcsoft_hdrplus_hvx_stub",
+        "libOpenCL",
+        "libmpbase",
+        "libcdsprpc",
+    ],
 }
 
 cc_prebuilt_library_shared {
@@ -21798,25 +21757,14 @@ cc_prebuilt_library_shared {
             srcs: [
                 "proprietary/odm/lib64/libormshalclient.so",
             ],
-            shared_libs: [
-                "libbase",
-                "libbinder",
-                "liblog",
-                "libhidlbase",
-                "libutils",
-                "libcutils",
-                "libhardware",
-                "vendor.oplus.hardware.orms@1.0",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
         },
     },
     compile_multilib: "both",
     prefer: true,
     device_specific: true,
+    shared_libs: [
+        "vendor.oplus.hardware.orms@1.0",
+    ],
 }
 
 cc_prebuilt_library_shared {
