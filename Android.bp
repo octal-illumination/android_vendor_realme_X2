@@ -10617,6 +10617,9 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libWaterMark.so",
             ],
             shared_libs: [
+        "libgui",
+        "libnativewindow",
+
                 "liblog",
                 "libui",
                 "libutils",
