@@ -10391,6 +10391,11 @@ cc_prebuilt_library_shared {
     compile_multilib: "both",
     prefer: true,
     soc_specific: true,
+    // allow_undefined_symbols: true — the platform's documented escape. This OEM blob was linked
+    // against an older DSP/graphics ABI (remote_handle_*@SDSPRPC, GraphicBufferMapper::unlock); the
+    // symbols exist at runtime in the vendor namespace but are not exported by the modules the check
+    // resolves against. Declaring more libraries cannot fix a version mismatch.
+    allow_undefined_symbols: true,
 }
 
 cc_prebuilt_library_shared {
@@ -10632,6 +10637,11 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     prefer: true,
     soc_specific: true,
+    // allow_undefined_symbols: true — the platform's documented escape. This OEM blob was linked
+    // against an older DSP/graphics ABI (remote_handle_*@SDSPRPC, GraphicBufferMapper::unlock); the
+    // symbols exist at runtime in the vendor namespace but are not exported by the modules the check
+    // resolves against. Declaring more libraries cannot fix a version mismatch.
+    allow_undefined_symbols: true,
 }
 
 cc_prebuilt_library_shared {
@@ -20686,6 +20696,11 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     prefer: true,
     device_specific: true,
+    // allow_undefined_symbols: true — the platform's documented escape. This OEM blob was linked
+    // against an older DSP/graphics ABI (remote_handle_*@SDSPRPC, GraphicBufferMapper::unlock); the
+    // symbols exist at runtime in the vendor namespace but are not exported by the modules the check
+    // resolves against. Declaring more libraries cannot fix a version mismatch.
+    allow_undefined_symbols: true,
 }
 
 cc_prebuilt_library_shared {
@@ -21006,6 +21021,11 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     prefer: true,
     device_specific: true,
+    // allow_undefined_symbols: true — the platform's documented escape. This OEM blob was linked
+    // against an older DSP/graphics ABI (remote_handle_*@SDSPRPC, GraphicBufferMapper::unlock); the
+    // symbols exist at runtime in the vendor namespace but are not exported by the modules the check
+    // resolves against. Declaring more libraries cannot fix a version mismatch.
+    allow_undefined_symbols: true,
 }
 
 cc_prebuilt_library_shared {
