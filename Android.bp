@@ -14548,6 +14548,9 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libsensorslog",
+    shared_libs: [
+        "liblog",
+    ],
     owner: "realme",
     strip: {
         none: true,
@@ -14689,6 +14692,11 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libsns_fastRPC_util",
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libutils",
+    ],
     owner: "realme",
     strip: {
         none: true,
@@ -14823,6 +14831,16 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libsnsdiaglog",
+    shared_libs: [
+        "libcutils",
+        "libdiag",
+        "liblog",
+        "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+        "libsensorslog",
+        "libsnsapi",
+        "libssc",
+        "libutils",
+    ],
     owner: "realme",
     strip: {
         none: true,
@@ -14912,6 +14930,17 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libssc",
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+        "libqmi_cci",
+        "libqmi_common_so",
+        "libqmi_encdec",
+        "libsensorslog",
+        "libsnsapi",
+        "libutils",
+    ],
     owner: "realme",
     strip: {
         none: true,
@@ -16762,6 +16791,12 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.dsp@1.0",
+    shared_libs: [
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+    ],
     owner: "realme",
     strip: {
         none: true,
@@ -17910,6 +17945,12 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.tui_comm@1.0",
+    shared_libs: [
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+    ],
     owner: "realme",
     strip: {
         none: true,
@@ -18542,6 +18583,7 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
+                "libmdnssd",
             ],
         },
     },
@@ -20269,6 +20311,15 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdclient",
+    shared_libs: [
+        "libwfdmminterface",
+    ],
+    shared_libs: [
+        "libmmosal",
+        "libwfdcommonutils",
+        "libwfdconfigutils",
+        "libwfdsinksm",
+    ],
     owner: "realme",
     strip: {
         none: true,
@@ -22296,6 +22347,12 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "vendor.oplus.hardware.bluetooth_audio@1.0",
+    shared_libs: [
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+    ],
     owner: "realme",
     strip: {
         none: true,
@@ -22385,6 +22442,12 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "vendor.oplus.hardware.orms@1.0",
+    shared_libs: [
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+    ],
     owner: "realme",
     strip: {
         none: true,
@@ -25160,6 +25223,7 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib/libkeystore_binder.so",
             ],
             shared_libs: [
+"libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "android.hardware.keymaster@4.0",
                 "libbinder",
                 "libc",
