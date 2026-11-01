@@ -10374,6 +10374,13 @@ cc_prebuilt_library_shared {
             srcs: [
                 "proprietary/vendor/lib/libStDrvInt.so",
             ],
+            shared_libs: [
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
         },
         android_arm64: {
             srcs: [
@@ -10873,6 +10880,10 @@ cc_prebuilt_library_shared {
         "libqmi_cci",
         "libqmi_common_so",
         "libsnsapi",
+            "libcutils",
+        "libhardware",
+        "liblog",
+        "libqdMetaData",
     ],
 }
 
@@ -10940,6 +10951,18 @@ cc_prebuilt_library_shared {
             srcs: [
                 "proprietary/vendor/lib/libcamxfdengine.so",
             ],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libsync",
+                "libcamera_nn_stub",
+                "libcdsprpc",
+                "libcamxfdalgov8",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
         },
         android_arm64: {
             srcs: [
@@ -10974,6 +10997,15 @@ cc_prebuilt_library_shared {
         android_arm: {
             srcs: [
                 "proprietary/vendor/lib/libcamxstatscore.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "liblog",
+                "libsync",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
             ],
         },
         android_arm64: {
@@ -11909,7 +11941,12 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     soc_specific: true,
-    prefer: true,
+    // The device tree builds libgps.utils from source (device/X2/gps/utils, vendor:true) and the
+    // device's own location programs include ITS headers. This F.26 blob is a different generation:
+    // readelf --dyn-syms shows loc_read_conf/loc_read_conf_r but neither loc_read_conf_long nor
+    // get_tag_log_level, which device/X2/gps/utils/{loc_cfg.cpp,loc_log.cpp} DO define, so
+    // libgnsspps failed to link. prefer:false lets the matching source module win.
+    prefer: false,
 }
 
 cc_prebuilt_library_shared {
@@ -14745,6 +14782,18 @@ cc_prebuilt_library_shared {
         android_arm: {
             srcs: [
                 "proprietary/vendor/lib/libsnsapi.so",
+            ],
+            shared_libs: [
+                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
+                "libcutils",
+                "libutils",
+                "libqmi_common_so",
+                "libqmi_cci",
+                "libqmi_encdec",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
             ],
         },
         android_arm64: {
@@ -21268,6 +21317,7 @@ cc_prebuilt_library_shared {
         "libOpenCL",
         "libmpbase",
         "libcdsprpc",
+            "liblog",
     ],
 }
 
@@ -21367,6 +21417,7 @@ cc_prebuilt_library_shared {
         "libOpenCL",
         "libmpbase",
         "libcdsprpc",
+            "liblog",
     ],
 }
 
@@ -21643,6 +21694,13 @@ cc_prebuilt_library_shared {
             srcs: [
                 "proprietary/odm/lib/libhwconfigurationutil.so",
             ],
+            shared_libs: [
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
         },
         android_arm64: {
             srcs: [
@@ -21764,6 +21822,13 @@ cc_prebuilt_library_shared {
     device_specific: true,
     shared_libs: [
         "vendor.oplus.hardware.orms@1.0",
+            "libbase",
+        "libbinder",
+        "libcutils",
+        "libhardware",
+        "libhidlbase",
+        "liblog",
+        "libutils",
     ],
 }
 
@@ -22095,6 +22160,19 @@ cc_prebuilt_library_shared {
         android_arm: {
             srcs: [
                 "proprietary/vendor/lib/oplus_btaudio_offload_if.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "libcutils",
+                "libfmq",
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "vendor.oplus.hardware.bluetooth_audio@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
             ],
         },
         android_arm64: {
