@@ -11904,6 +11904,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     soc_specific: true,
+    prefer: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12429,6 +12430,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     soc_specific: true,
+    prefer: true,
 }
 
 cc_prebuilt_library_shared {
@@ -12484,6 +12486,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     soc_specific: true,
+    prefer: true,
 }
 
 cc_prebuilt_library_shared {
