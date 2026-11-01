@@ -11941,12 +11941,14 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "64",
     soc_specific: true,
-    // The device tree builds libgps.utils from source (device/X2/gps/utils, vendor:true) and the
-    // device's own location programs include ITS headers. This F.26 blob is a different generation:
-    // readelf --dyn-syms shows loc_read_conf/loc_read_conf_r but neither loc_read_conf_long nor
-    // get_tag_log_level, which device/X2/gps/utils/{loc_cfg.cpp,loc_log.cpp} DO define, so
-    // libgnsspps failed to link. prefer:false lets the matching source module win.
-    prefer: false,
+    // KEPT as the provider (2026-11-02, C107). The device tree builds a same-named libgps.utils from
+    // source, and our newer loc_cfg.h makes loc_read_conf an inline calling loc_read_conf_long, which this
+    // F.26 blob does not export (it has loc_read_conf/loc_read_conf_r only). Flipping prefer to false made
+    // libgnsspps link but broke 25 prebuilt consumers that need 42 symbols from this soname and were
+    // compiled against this blob (build 20261101_220659: 19 targets). The blob stays provider; the device
+    // programs that need the newer API link our utilities statically instead (see
+    // device/X2/location/gnsspps/Android.bp). Contract: ref/provider_swaps.txt.
+    prefer: true,
 }
 
 cc_prebuilt_library_shared {
