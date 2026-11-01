@@ -930,7 +930,6 @@ PRODUCT_PACKAGES += \
     libSNPE \
     libSNPE_G \
     libVDBayerHDR \
-    libVDBlurless \
     libVDBlurlessAPI_v2 \
     libVDDualCameraBlurlessAPI \
     libVDExternal \
