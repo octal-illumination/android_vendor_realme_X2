@@ -879,7 +879,6 @@ PRODUCT_PACKAGES += \
     vendor_lib_rfsa_adsp_libsnpe_dsp_v65_domains_v2_skel_so \
     vendor_lib_rfsa_adsp_libsns_device_mode_skel_so \
     vendor_lib_rfsa_adsp_libsns_low_lat_stream_skel_so \
-    libmiracastsystem \
     libmmosal \
     libmmparser_lite \
     libmmrtpdecoder \
@@ -954,11 +953,9 @@ PRODUCT_PACKAGES += \
     libarcsoft_lensstaindetection \
     libarcsoft_low_light_hdr \
     libarcsoft_portraitSN_hvx_stub \
-    libarcsoft_portrait_super_night_raw \
     libarcsoft_scbokeh_image \
     libarcsoft_scbokeh_video \
     libarcsoft_smart_denoise \
-    libarcsoft_super_night_raw \
     libavcodec \
     libavformat \
     libavutil \

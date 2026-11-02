@@ -18527,72 +18527,6 @@ prebuilt_rfsa {
 }
 
 cc_prebuilt_library_shared {
-// NOTE (Soong analysis, 2026-10-31): libmdnssd was REMOVED from shared_libs below.
-// The base defines it in external/mdnsresponder WITHOUT vendor_available, so a vendor
-// module may not depend on it -- Soong fails the *static* variant with:
-//   depends on //external/mdnsresponder:libmdnssd ... add //vendor/realme/X2 to visibility
-// The blob genuinely needs it at runtime (DT_NEEDED, both ABIs), and the base still
-// installs libmdnssd.so to /system, which the default namespace resolves for system_ext
-// libs -- so dropping the build-time declaration is correct, not a workaround.
-// Guarded by lint C81 (vendor shared_libs must be vendor_available in the base).
-    name: "libmiracastsystem",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/system_ext/lib/libmiracastsystem.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "libhardware_legacy",
-                "libmmosal",
-                "libutils",
-                "libmedia",
-                "libbinder",
-                "libnetutils",
-                "libwfdclient",
-                "libaudioclient",
-                "liblog",
-                "libkeystore_binder",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/system_ext/lib64/libmiracastsystem.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "libhardware_legacy",
-                "libmmosal",
-                "libutils",
-                "libmedia",
-                "libbinder",
-                "libnetutils",
-                "libwfdclient",
-                "libaudioclient",
-                "liblog",
-                "libkeystore_binder",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-                "libmdnssd",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    system_ext_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libmmosal",
     owner: "realme",
     strip: {
@@ -21350,31 +21284,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libarcsoft_portrait_super_night_raw",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/libarcsoft_portrait_super_night_raw.so",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-    shared_libs: [
-        "libarcsoft_portraitSN_hvx_stub",
-        "libOpenCL",
-        "libmpbase",
-        "libcdsprpc",
-            "liblog",
-    ],
-}
-
-cc_prebuilt_library_shared {
     name: "libarcsoft_scbokeh_image",
     owner: "realme",
     strip: {
@@ -21447,31 +21356,6 @@ cc_prebuilt_library_shared {
     compile_multilib: "64",
     prefer: true,
     device_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libarcsoft_super_night_raw",
-    owner: "realme",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/lib64/libarcsoft_super_night_raw.so",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    device_specific: true,
-    shared_libs: [
-        "libarcsoft_hdrplus_hvx_stub",
-        "libOpenCL",
-        "libmpbase",
-        "libcdsprpc",
-            "liblog",
-    ],
 }
 
 cc_prebuilt_library_shared {
@@ -25199,15 +25083,16 @@ install_symlink {
 // hardware/qcom-caf/common. Another under-search false negative (LL-038).
 
 // ---------------------------------------------------------------------------
-// NOTE (Soong analysis failure, 2026-10-31): libmiracastsystem declares
-//   shared_libs ["libkeystore_binder"]
-// but LOS 23.2 / A16 provides NO module by that name -- keystore1 was dropped when
-// keystore2 replaced it. Checked against the real tree's module index (49,315 modules):
-// libkeystore_binder, libkeystore_aidl and libkeystore_parcelables are ALL absent.
-// F.26 ships all three in /system/lib{,64}; our blobs genuinely need them (DT_NEEDED),
-// so we SHIP the OEM libraries rather than drop the dependency.
-// Full transitive closure resolved and verified: the other 17 dependencies are all
-// provided by the base tree, so these three are sufficient.
+// NOTE (updated 2026-11-02): these OEM libkeystore_* blobs used to be shipped because
+// libmiracastsystem declared shared_libs ["libkeystore_binder"], a module LOS 23.2 does not
+// provide (keystore1 was dropped when keystore2 replaced it). libmiracastsystem itself is now
+// EXCLUDED -- it needs libsigmautils.so, which exists neither in the F.26 package nor on the
+// device, so it could never load, even on stock (see ref/provider_swaps.txt and the CHANGELOG
+// entry of 2026-11-02). Any module still declaring these names keeps this justification; if
+// none does, they are orphans and can be dropped in a cleanup pass.
+// History: LOS 23.2 has NO libkeystore_binder / libkeystore_aidl / libkeystore_parcelables
+// (checked against the real tree's module index: 49,315 modules); F.26 ships all three in
+// /system/lib{,64} and our blobs genuinely need them (DT_NEEDED).
 // Guarded by lint C23 (vendor DT_NEEDED closure vs the base module index).
 // ---------------------------------------------------------------------------
 
