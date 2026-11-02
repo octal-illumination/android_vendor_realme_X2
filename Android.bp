@@ -20247,8 +20247,6 @@ cc_prebuilt_library_shared {
     name: "libwfdclient",
     shared_libs: [
         "libwfdmminterface",
-    ],
-    shared_libs: [
         "libmmosal",
         "libwfdcommonutils",
         "libwfdconfigutils",
