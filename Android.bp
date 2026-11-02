@@ -1483,6 +1483,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libOmxSwVencMpeg4",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -9550,6 +9551,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "lib-imsdpl",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -9984,6 +9986,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libEIS",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -11988,6 +11991,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libhbtpdsp",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -18699,6 +18703,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwfdcommonutils",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -18980,6 +18985,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwfdnative",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -19556,6 +19562,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwfdavenhancements",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -19586,6 +19593,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwfdmmsrc_system",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -19627,6 +19635,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwfdservice",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -19873,6 +19882,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "lib-imsvideocodec",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -20246,11 +20256,22 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwfdclient",
     shared_libs: [
-        "libwfdmminterface",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libbinder",
+        "libgui",
         "libmmosal",
+        "libinput",
+        "libwfdsinksm",
         "libwfdcommonutils",
         "libwfdconfigutils",
-        "libwfdsinksm",
+        "libwfdmminterface",
+        "libnativewindow",
+        "libc++",
+        "libc",
+        "libm",
+        "libdl",
     ],
     owner: "realme",
     strip: {
@@ -20265,24 +20286,6 @@ cc_prebuilt_library_shared {
         android_arm64: {
             srcs: [
                 "proprietary/system_ext/lib64/libwfdclient.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libbinder",
-                "libgui",
-                "libmmosal",
-                "libinput",
-                "libwfdsinksm",
-                "libwfdcommonutils",
-                "libwfdconfigutils",
-                "libwfdmminterface",
-                "libnativewindow",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
             ],
         },
     },
@@ -21798,6 +21801,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libsnpe_dsp_domains_v2",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -22021,6 +22025,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwvhidl",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
@@ -22057,6 +22062,7 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libwvdrmengine",
     owner: "realme",
+    allow_undefined_symbols: true,
     strip: {
         none: true,
     },
